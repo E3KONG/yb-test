@@ -208,6 +208,18 @@
             width: 70vw;
         }
 
+        .bottom-legend {
+            position: absolute;
+            z-index: 1000;
+            top: 80vh;
+            left: 50%;
+            transform: translateX(-50%);
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            width: 70vw;
+        }
+
         .date {
             position: absolute;
             z-index: 1000;
@@ -234,7 +246,6 @@
             box-shadow: inset #ffffffaa 0px 0px 10px 0px;
             /* text-shadow: #00000080 1px 1px 3px; */
         }
-
         .current-time {
             display: flex;
             left: 50%;
@@ -251,31 +262,30 @@
             display: inline-block;
             text-align: center;
         }
-
-
         .legend-text {
             cursor: pointer;
             display: inline-block;
             /* 確保padding有效 */
             font-weight: 400;
-            font-size: 1rem;
+            font-size: 0.8rem;
             line-height: 1;
             color: #333;
-            padding: 0.5rem 0.7rem 0.5rem 0.7rem;
+            padding: 0.3rem 0.4rem 0.3rem 0.4rem;
             letter-spacing: 0.025rem;
             border-radius: 5px;
-            margin: 3px;
+            margin: 2px;
             vertical-align: middle;
+            border: solid #FFFFFF 0.5px;
         }
-
         .legend-box {
             display: inline-block;
             width: 0.95rem;
             height: 0.95rem;
             border-radius: 0.5rem;
-            background: #000;
+            /* background: #000; */
             vertical-align: bottom;
             border: solid #ffffff00 1px;
+            font-size: 0.8rem;
         }
 
         .legend-item-click {
@@ -325,17 +335,17 @@
 
         @media(max-width: 768px) {
             .top-legend {
-                width: 50vw;
+                width: 80vw;
             }
 
             .legend-text {
-                font-size: 0.8rem;
-                padding: 0.4rem 0.6rem 0.4rem 0.6rem;
+                font-size: 0.7rem;
+                padding: 0.3rem 0.4rem 0.3rem 0.4rem;
             }
 
             .legend-box {
-                width: 0.75rem;
-                height: 0.75rem;
+                width: 0.65rem;
+                height: 0.65rem;
             }
 
             .current-time {
@@ -535,65 +545,50 @@
         <div id="countDisplay" style="display: none;"></div>
         <div class="top-legend">
             <div class="legend-group">
-                <label class="legend-text legend-item-click" data-status="s1" data-active="true">
-                    <span data-status="s1" data-active="true" style="color: var(--c1)">⬤</span> 3/22為100%
-                </label>
-                <label class="legend-text legend-item-click" data-status="s2" data-active="true">
-                    <span data-status="s2" data-active="true" style="color: var(--c2)">⬤</span> 3/22在90%以上
-                </label>
-                <br>
-                <div>---3月22日見車率未達9成之站點，觀察與2月20日之差距---</div>
+                <div style="padding-bottom: 6px; color: #00000088;">3月22日見車率未達9成之站點，觀察與2月20日之差距</div>
                 <label class="legend-text legend-item-click" data-status="s3" data-active="true">
-                    <span data-status="s3" data-active="true" style="color: var(--c3)">⬤</span> -10%以上
+                    <span data-status="s3" data-active="true" class="legend-box" style="background-color: var(--c3)"></span> -10%以上
                 </label>
                 <label class="legend-text legend-item-click" data-status="s4" data-active="true">
-                    <span data-status="s4" data-active="true" style="color: var(--c4)">⬤</span> -5%至-10%
+                    <span data-status="s4" data-active="true" class="legend-box" style="background-color: var(--c4)"></span> -5%至-10%
                 </label>
                 <label class="legend-text legend-item-click" data-status="s5" data-active="true">
-                    <span data-status="s5" data-active="true" style="color: var(--c5)">⬤</span> -5%以內
+                    <span data-status="s5" data-active="true" class="legend-box" style="background-color: var(--c5)"></span> -5%以內
                 </label>
                 <label class="legend-text legend-item-click" data-status="s6" data-active="true">
-                    <span data-status="s6" data-active="true" style="color: var(--c6)">⬤</span> +0%
+                    <span data-status="s6" data-active="true" class="legend-box" style="background-color: var(--c6)"></span> +0%
                 </label>
                 <label class="legend-text legend-item-click" data-status="s7" data-active="true">
-                    <span data-status="s7" data-active="true" style="color: var(--c7)">⬤</span> +5%以內
+                    <span data-status="s7" data-active="true" class="legend-box" style="background-color: var(--c7)"></span> +5%以內
                 </label>
                 <label class="legend-text legend-item-click" data-status="s8" data-active="true">
-                    <span data-status="s8" data-active="true" style="color: var(--c8)">⬤</span> +5%至10%
+                    <span data-status="s8" data-active="true" class="legend-box" style="background-color: var(--c8)"></span> +5%至10%
                 </label>
                 <label class="legend-text legend-item-click" data-status="s9" data-active="true">
-                    <span data-status="s9" data-active="true" style="color: var(--c9)">⬤</span> +10%以上
+                    <span data-status="s9" data-active="true" class="legend-box" style="background-color: var(--c9)"></span> +10%以上
                 </label>
                 <label class="legend-text legend-item-click" data-status="s10" data-active="true">
-                    <span data-status="s10" data-active="true" style="color: var(--c10)">⬤</span> 無法比較
+                    <span data-status="s10" data-active="true" class="legend-box" style="background-color: var(--c10)"></span> 無法比較
                 </label>
             </div>
-
-
-
-
-
-
-
-
-            <!-- <div id="timeIndexDisplay" class="current-time">Current Time</div> -->
         </div>
-        <!-- <div class="legend-player">
-            <button id="stopButton" class="Player-Button-Motion">
-                 PAUSE BUTTON 
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                    <rect x="7.20001" y="6.80005" width="1.6" height="6.4" />
-                    <rect x="11.2" y="6.80005" width="1.6" height="6.4" />
-                </svg>
-            </button>
-            <button id="playButton" class="Player-Button-Motion">
-                 PLAY BUTTON 
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                    <path d="M7.60001 13.5111V6.40002L13.8222 9.95558L7.60001 13.5111Z" />
 
-                </svg>
-            </button>
-        </div> -->
+        <div class="bottom-legend">
+            <div class="legend-group">
+                <label class="legend-text legend-item-click" data-status="s1" data-active="true">
+                    <span data-status="s1" data-active="true" class="legend-box" style="background-color: var(--c1)"></span> 3/22為100%
+                </label>
+                <label class="legend-text legend-item-click" data-status="s2" data-active="true">
+                    <span data-status="s2" data-active="true" class="legend-box" style="background-color: var(--c2)"></span> 3/22在90%以上
+                </label>
+            </div>
+        </div>
+
+
+
+
+
+
 
 
         <!-- Popup Panel -->
